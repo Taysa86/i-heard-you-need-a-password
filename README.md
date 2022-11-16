@@ -9,6 +9,8 @@ trouble, largely due to it coinsiding with a couple of deaths in the family, but
 
 ## Usage
 
+https://taysa86.github.io/i-heard-you-need-a-password/
+
 To opperate the generator, simply click the button and follow the prompts. It will ask you to choose your password length, and then it will prompt you to select what sort of characters you'd like to include. Once you have answered all of the prompts, you will be given your password.
 
 
