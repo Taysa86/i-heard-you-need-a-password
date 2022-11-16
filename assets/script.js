@@ -14,17 +14,48 @@ var generateBtn = document.querySelector("#generate");
   var wantspecial ;
   var wantlength = "";
 
+  function getRandomArbitrary (max) {
+    return Math.random() * (max);
+  }
+
+function generatePassword() {
+  let letter = letters.charAt(0)
+  console.log (letter)
+  var selectedcharacters = "";
+  
+  if (wantlowercase) { 
+    selectedcharacters = selectedcharacters.concat(letters)
+    
+  }
+  if (wantuppercase) { 
+    selectedcharacters = selectedcharacters.concat(caps)
+    
+  }
+  if (wantnumbers) { 
+    selectedcharacters = selectedcharacters.concat(numbers)
+    
+  }
+  if (wantspecial) { 
+    selectedcharacters = selectedcharacters.concat(special)
+    
+  }
+    let index = getRandomArbitrary(selectedcharacters.length)
+  console.log(selectedcharacters.charAt(index))
+} 
+
 // Write password to the #password input
- function writePassword() {
-  var wantlength = (prompt ("Pick a length between 8 and 128 characters."));
+function writePassword() {
+  wantlength = (prompt ("Pick a length between 8 and 128 characters."));
 
 // Prompts for parameters
- var wantlowercase = comfirm("Would you like lowercase letters?");
- var wantuppercase = confirm("Would you like uppercase letters?");
- var wantnumbers = confirm("Would you like Uppercase letters?");
- var wantspecial = confirm("would you like special characters?");
- 
-  var password = generatePassword();
+  wantlowercase = confirm("Would you like lowercase letters?");
+  wantuppercase = confirm("Would you like uppercase letters?");
+  wantnumbers = confirm("Would you like numbers?");
+  wantspecial = confirm("would you like special characters?");
+  console.log (wantlowercase,wantuppercase,wantnumbers,wantspecial)
+  var password = generatePassword()
+
+  ;
   var passwordText = document.querySelector("#password");
   
   passwordText.value = password;
@@ -35,38 +66,4 @@ var generateBtn = document.querySelector("#generate");
 generateBtn.addEventListener("click", writePassword)
   
 
- /*let  password = "" {
-  if (password.numbers) {
-    
-  } else {
-    
-  } (password) {
-    
-  }
-  
-    
-  }; */
-
- //--reference code: trying to reverse engineer code to fix 
- /*
- var length = Number(prompt("Enter a password length between 8 and 128")),
-  charType = prompt("Enter a character type: special, numeric, uppercase, lowercase."),
-  password = generatePassword();
-document.getElementById("display").value = password;
-document.getElementById('copy-btn').addEventListener('click', copyPassword);
-
-function generatePassword() {
-  var charSets = {
-    lowercase: 'abcdefghijklmnopqrstuvwxyz',
-    uppercase: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ',
-    numeric: '0123456789',
-    special: ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`{|}~'
-  };
-  var charSet = charSets[charType.toLowerCase()] || charSets.lowercase;
-  var retVal = "";
-  for (var i = 0; i < length; i++) {
-    retVal += charSet.charAt(Math.floor(Math.random() * charSet.length));
-  }
-  return retVal;
-}
- */
+ 
